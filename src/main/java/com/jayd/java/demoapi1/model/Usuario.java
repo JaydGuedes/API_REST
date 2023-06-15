@@ -1,4 +1,4 @@
-package com.jayd.java.demoapi1;
+package com.jayd.java.demoapi1.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -15,17 +15,19 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
-
-public class Treco {
+public class Usuario {
+	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(nullable = false)
 	private Long id;
 	
-	@Column(length = 63,nullable = false)
+	@Column(length = 127)
 	private String name;
 	
-	@Column(length = 127)
-	private String description;
+	@Column(length = 255)
+	private String email;
 
+	@Column(length = 63)
+	private String password;
 }

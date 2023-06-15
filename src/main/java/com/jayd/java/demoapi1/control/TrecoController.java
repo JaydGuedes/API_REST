@@ -1,4 +1,4 @@
-package com.jayd.java.demoapi1;
+package com.jayd.java.demoapi1.control;
 
 import java.util.List;
 
@@ -13,50 +13,50 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.jayd.java.demoapi1.model.Treco;
+import com.jayd.java.demoapi1.repository.TrecoRepository;
+
 @RestController
-@RequestMapping("/users")
-public class UserController {
+@RequestMapping("/trecos")
+public class TrecoController {
 	@Autowired
-	// private UserRepository userRepository;
-	UserRepository userRepository;
-	
-	/*
+	private TrecoRepository trecoRepository;
+
 	@GetMapping
-	public List<User> getAll(){
-		return userRepository.findAll();
+	public List<Treco> getAll() {
+		return trecoRepository.findAll();
 	}
-	
+
 	@GetMapping(path = "/{id}")
-	public User getOne(@PathVariable Long id) {
-		if(userRepository.existsById(id)) {
-			return userRepository.findById(id).get();
+	public Treco getOne(@PathVariable Long id) {
+		if (trecoRepository.existsById(id)) {
+			return trecoRepository.findById(id).get();
 		}
 		return null;
 	}
-	
+
 	@PostMapping
-	public User post(@RequestBody User user) {
-		return userRepository.save(user);
+	public Treco post(@RequestBody Treco treco) {
+		return trecoRepository.save(treco);
 	}
-	
+
 	@DeleteMapping(path = "/{id}", produces = "application/json")
 	public String delete(@PathVariable Long id) {
-		if(userRepository.existsById(id)) {
-			userRepository.deleteById(id);
+		if (trecoRepository.existsById(id)) {
+			trecoRepository.deleteById(id);
 			return "{ \"status\" : \"deleted\" }";
 		}
 		return "{ \"status\" : \"error\" }";
 	}
-	
+
 	@PutMapping(path = "/{id}")
-	public User put(@PathVariable Long id, @RequestBody User user) {
+	public Treco put(@PathVariable Long id, @RequestBody Treco treco) {
 		return null;
 	}
-	
+
 	@PatchMapping(path = "/{id}")
-	public User patch(@PathVariable Long id, @RequestBody User user) {
+	public Treco patch(@PathVariable Long id, @RequestBody Treco treco) {
 		return null;
 	}
-	*/
 
 }
