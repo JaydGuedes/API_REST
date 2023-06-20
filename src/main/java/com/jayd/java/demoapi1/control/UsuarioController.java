@@ -27,7 +27,7 @@ public class UsuarioController {
 		return usuarioRepository.findAll();
 	}
 	
-	@GetMapping(path = "/{id}")
+	@GetMapping(path = "/{userId}")
 	public Usuario getOne(@PathVariable Long id) {
 		if(usuarioRepository.existsById(id)) {
 			return usuarioRepository.findById(id).get();
@@ -40,7 +40,7 @@ public class UsuarioController {
 		return usuarioRepository.save(user);
 	}
 	
-	@DeleteMapping(path = "/{id}", produces = "application/json")
+	@DeleteMapping(path = "/{userId}", produces = "application/json")
 	public String delete(@PathVariable Long id) {
 		if(usuarioRepository.existsById(id)) {
 			usuarioRepository.deleteById(id);
@@ -49,12 +49,12 @@ public class UsuarioController {
 		return "{ \"status\" : \"error\" }";
 	}
 	
-	@PutMapping(path = "/{id}")
+	@PutMapping(path = "/{userId}")
 	public Usuario put(@PathVariable Long id, @RequestBody Usuario user) {
 		return null;
 	}
 	
-	@PatchMapping(path = "/{id}")
+	@PatchMapping(path = "/{userId}")
 	public Usuario patch(@PathVariable Long id, @RequestBody Usuario user) {
 		return null;
 	}
