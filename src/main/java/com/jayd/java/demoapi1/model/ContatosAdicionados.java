@@ -21,7 +21,7 @@ public class ContatosAdicionados {
 	private String contEmail;
 
 	@Column(length = 255)
-	private Long userId;
+	private Long contUserId;
 
 	public Long getContId() {
 		return contId;
@@ -47,12 +47,12 @@ public class ContatosAdicionados {
 		this.contEmail = contEmail;
 	}
 
-	public Long getUserId() {
-		return userId;
+	public Long getContUserId() {
+		return contUserId;
 	}
 
-	public void setUserId(Long userId) {
-		this.userId = userId;
+	public void setContUserId(Long contUserId) {
+		this.contUserId = contUserId;
 	}
 
 }

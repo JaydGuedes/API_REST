@@ -3,12 +3,10 @@ package com.jayd.java.demoapi1.control;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -40,26 +38,9 @@ public class MensagensController {
 	public Mensagens post(@RequestBody Mensagens mensagem) {
 		return mensagensRepository.save(mensagem);
 	}
-	
-	@DeleteMapping(path = "/{mensId}", produces = "application/json")
-	public String delete(@PathVariable Long id) {
-		if(mensagensRepository.existsById(id)) {
-			mensagensRepository.deleteById(id);
-			return "{ \"status\" : \"deleted\" }";
-		}
-		return "{ \"status\" : \"error\" }";
-	}
-	
-	@PutMapping(path = "/{mensId}")
-	public Mensagens put(@PathVariable Long id, @RequestBody Mensagens mensagem) {
-		return null;
-	}
-	
+		
 	@PatchMapping(path = "/{mensId}")
 	public Mensagens patch(@PathVariable Long id, @RequestBody Mensagens mensagem) {
 		return null;
 	}
-
-	
-
 }
