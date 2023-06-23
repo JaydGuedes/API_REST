@@ -21,9 +21,9 @@ public class MensagensController {
 	@Autowired
 	private MensagensRepository mensagensRepository;
 	
-	@GetMapping
-	public List<Mensagens> getAll(){
-		return mensagensRepository.findAll();
+	@GetMapping("/{uId1}/{uId2}")
+	public List<Mensagens> getAll(@PathVariable Long uId1, @PathVariable Long uId2){
+		return mensagensRepository.conversa(uId1, uId2);
 	}
 	
 	@GetMapping(path = "/{mensId}")

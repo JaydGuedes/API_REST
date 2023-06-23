@@ -20,7 +20,7 @@ public class ContatosAdicionadosController {
 	@Autowired
 	private ContatosAdicionadosRepository ContatosAdicionadosRepository;
 
-	@GetMapping
+	@GetMapping(path = "/{contUserId}")
 	public List<ContatosAdicionados> getAll() {
 		return ContatosAdicionadosRepository.findAll();
 	}
@@ -32,14 +32,7 @@ public class ContatosAdicionadosController {
 		}
 		return null;
 	}
-	@GetMapping(path = "/{contId}")
-	public ContatosAdicionados getOne(@PathVariable String contUserId) {
-		if (ContatosAdicionadosRepository.existsById(null)) {
-			return ContatosAdicionadosRepository.findById(null).get();
-		}
-		return null;
-	}
-
+	
 	@PostMapping
 	public ContatosAdicionados post(@RequestBody ContatosAdicionados contatosAdicionados) {
 		return ContatosAdicionadosRepository.save(contatosAdicionados);
