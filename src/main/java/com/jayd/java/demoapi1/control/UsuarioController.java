@@ -19,25 +19,25 @@ import com.jayd.java.demoapi1.repository.UsuarioRepository;
 public class UsuarioController {
 	@Autowired
 	private UsuarioRepository usuarioRepository;
-		
-	@GetMapping
-	public List<Usuario> getAll(){
-		return usuarioRepository.findAll();
-	}
-	
+
+	@GetMapping("/{uNom}")
+	public List<Usuario> getAll(@PathVariable String uNom){
+		return usuarioRepository.listaPAdd(uNom);
+		}
+
 	@GetMapping(path = "/{userId}")
 	public Usuario getOne(@PathVariable Long id) {
-		if(usuarioRepository.existsById(id)) {
+		if (usuarioRepository.existsById(id)) {
 			return usuarioRepository.findById(id).get();
 		}
 		return null;
 	}
-	
+
 	@PostMapping
 	public Usuario post(@RequestBody Usuario user) {
 		return usuarioRepository.save(user);
 	}
-		
+
 	@PatchMapping(path = "/{userId}")
 	public Usuario patch(@PathVariable Long id, @RequestBody Usuario user) {
 		return null;

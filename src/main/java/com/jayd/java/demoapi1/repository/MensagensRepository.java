@@ -13,5 +13,8 @@ public interface MensagensRepository extends JpaRepository<Mensagens, Long> {
 	
 	@Query(value = "SELECT * FROM MENSAGENS where MENS_CONT_ID = :user1 and MENS_USER_ID = :user2",nativeQuery = true)
 	List <Mensagens> conversa(@Param ("user1") Long user1, @Param ("user2") Long user2);
+	
+	@Query(value = "SELECT * FROM MENSAGENS where MENS_CONT_ID = :user1 and MENS_USER_ID = :user2",nativeQuery = true)
+	Long addMensage(@Param ("user1") Long user1, @Param ("user2") Long user2);
 
 }

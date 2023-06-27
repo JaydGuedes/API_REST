@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,28 +18,22 @@ import com.jayd.java.demoapi1.repository.ContatosAdicionadosRepository;
 public class ContatosAdicionadosController {
 	@Autowired
 	private ContatosAdicionadosRepository ContatosAdicionadosRepository;
-
-	@GetMapping(path = "/{contUserId}")
-	public List<ContatosAdicionados> getAll() {
-		return ContatosAdicionadosRepository.findAll();
-	}
-
-	@GetMapping(path = "/{contId}")
-	public ContatosAdicionados getOne(@PathVariable Long id) {
-		if (ContatosAdicionadosRepository.existsById(id)) {
-			return ContatosAdicionadosRepository.findById(id).get();
+	
+	@GetMapping("/{uId}")
+	public List<ContatosAdicionados> getAll(@PathVariable Long uId){
+		return ContatosAdicionadosRepository.listaCont(uId);
 		}
-		return null;
-	}
+	@GetMapping("/{uId1}/{uId2}")
+	public Long get(@PathVariable Long uId1, @PathVariable Long uId2){
+		return ContatosAdicionadosRepository.existId(uId1,uId2);
+		}
 	
 	@PostMapping
 	public ContatosAdicionados post(@RequestBody ContatosAdicionados contatosAdicionados) {
 		return ContatosAdicionadosRepository.save(contatosAdicionados);
 	}
-
-	@PatchMapping(path = "/{contId}")
-	public ContatosAdicionados patch(@PathVariable Long id, @RequestBody ContatosAdicionados contatosAdicionados) {
-		return null;
+	@PostMapping("/{uId1}/{uId2}")
+	public Long post(@PathVariable Long uId1, @PathVariable Long uId2) {
+		return ContatosAdicionadosRepository.addCont(uId1,uId2);
 	}
-
 }

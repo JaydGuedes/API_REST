@@ -15,13 +15,10 @@ public class ContatosAdicionados {
 	private Long contId;
 
 	@Column(length = 255)
-	private String contNome;
-
+	private Long contUserIdPrimary;
+	
 	@Column(length = 255)
-	private String contEmail;
-
-	@Column(length = 255)
-	private Long contUserId;
+	private Long contUserIdContato;
 
 	public Long getContId() {
 		return contId;
@@ -31,28 +28,21 @@ public class ContatosAdicionados {
 		this.contId = contId;
 	}
 
-	public String getContNome() {
-		return contNome;
+	public Long getContUserIdPrimary() {
+		return contUserIdPrimary;
 	}
 
-	public void setContNome(String contNome) {
-		this.contNome = contNome;
+	public void setContUserIdPrimary(Long contUserIdPrimary) {
+		this.contUserIdPrimary = contUserIdPrimary;
 	}
 
-	public String getContEmail() {
-		return contEmail;
+	public Long getContUserIdContato() {
+		return contUserIdContato;
 	}
 
-	public void setContEmail(String contEmail) {
-		this.contEmail = contEmail;
+	public void setContUserIdContato(Long contUserIdContato) {
+		this.contUserIdContato = contUserIdContato;
 	}
-
-	public Long getContUserId() {
-		return contUserId;
-	}
-
-	public void setContUserId(Long contUserId) {
-		this.contUserId = contUserId;
-	}
+		
 
 }

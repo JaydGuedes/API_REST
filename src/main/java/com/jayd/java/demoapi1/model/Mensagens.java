@@ -17,10 +17,10 @@ public class Mensagens {
 	private Long mensId;
 
 	@Column(length = 255)
-	private Long mensContId;
+	private Long mensUserIdContato;
 
 	@Column(length = 255)
-	private Long mensUserId;
+	private Long mensUserIdPrimary;
 
 	@Column(length = 500)
 	private String mensMensagem;
@@ -39,20 +39,20 @@ public class Mensagens {
 		this.mensId = mensId;
 	}
 
-	public Long getMensContId() {
-		return mensContId;
+	public Long getMensUserIdContato() {
+		return mensUserIdContato;
 	}
 
-	public void setMensContId(Long mensContId) {
-		this.mensContId = mensContId;
+	public void setMensUserIdContato(Long mensUserIdContato) {
+		this.mensUserIdContato = mensUserIdContato;
 	}
 
-	public Long getMensUserId() {
-		return mensUserId;
+	public Long getMensUserIdPrimary() {
+		return mensUserIdPrimary;
 	}
 
-	public void setMensUserId(Long mensUserId) {
-		this.mensUserId = mensUserId;
+	public void setMensUserIdPrimary(Long mensUserIdPrimary) {
+		this.mensUserIdPrimary = mensUserIdPrimary;
 	}
 
 	public String getMensMensagem() {
@@ -78,5 +78,5 @@ public class Mensagens {
 	public void setMensData(String mensData) {
 		this.mensData = mensData;
 	}
-
+	
 }
