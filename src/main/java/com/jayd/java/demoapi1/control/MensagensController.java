@@ -39,6 +39,13 @@ public class MensagensController {
 		return mensagensRepository.save(mensagem);
 	}
 		
+	
+	/*@PatchMapping(path = "/{id}", produces = "application/json")
+	public String updateViews(@PathVariable Long id) {
+		repository.updateViews(id);
+		return "{\"status\": \"success\"}";
+	}*/
+	
 	@PatchMapping(path = "/{mensId}")
 	public Mensagens patch(@PathVariable Long id, @RequestBody Mensagens mensagem) {
 		return null;

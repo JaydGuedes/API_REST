@@ -14,8 +14,8 @@ public interface ContatosAdicionadosRepository extends JpaRepository<ContatosAdi
 	List <ContatosAdicionados> listaCont(@Param ("user1") Long user);
 	
 	@Query(value = "SELECT * FROM CONTATOS_ADICIONADOS WHERE CONT_USER_ID_PRIMARY  = :user AND CONT_USER_ID_CONTATO  = :contato",nativeQuery = true)
-	Long existId(@Param ("user") Long user, @Param ("contato") Long contato);
+	ContatosAdicionados existId(@Param ("user") Long user, @Param ("contato") Long contato);
 	
 	@Query(value = "INSERT INTO CONTATOS_ADICIONADOS  (CONT_USER_ID_PRIMARY , CONT_USER_ID_CONTATO )VALUES (:user, :contato)",nativeQuery = true)
-	Long addCont(@Param ("user") Long user, @Param ("contato") Long contato);
+	ContatosAdicionados addCont(@Param ("user") Long user, @Param ("contato") Long contato);
 }
