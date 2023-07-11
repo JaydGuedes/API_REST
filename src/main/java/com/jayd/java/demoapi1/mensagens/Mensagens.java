@@ -1,4 +1,4 @@
-package com.jayd.java.demoapi1.model;
+package com.jayd.java.demoapi1.mensagens;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -14,7 +14,7 @@ public class Mensagens {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(nullable = false)
-	private Long mensId;
+	private Long mensId; 
 
 	@Column(length = 255)
 	private Long mensUserIdContato;

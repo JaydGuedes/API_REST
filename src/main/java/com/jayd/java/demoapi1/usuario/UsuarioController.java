@@ -1,8 +1,9 @@
-package com.jayd.java.demoapi1.control;
+package com.jayd.java.demoapi1.usuario;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,13 +12,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.jayd.java.demoapi1.model.Usuario;
-import com.jayd.java.demoapi1.repository.UsuarioRepository;
-
 @RestController
 @RequestMapping("/usuarios")
+@CrossOrigin
 public class UsuarioController {
-	@Autowired
+	@Autowired 
 	private UsuarioRepository usuarioRepository;
 
 	@GetMapping("/{uNom}")
@@ -26,11 +25,8 @@ public class UsuarioController {
 		}
 
 	@GetMapping(path = "/{userId}")
-	public Usuario getOne(@PathVariable Long id) {
-		if (usuarioRepository.existsById(id)) {
-			return usuarioRepository.findById(id).get();
-		}
-		return null;
+	public Usuario getOne(@PathVariable Long userId) {
+			return usuarioRepository.sendUser(userId);
 	}
 
 	@PostMapping

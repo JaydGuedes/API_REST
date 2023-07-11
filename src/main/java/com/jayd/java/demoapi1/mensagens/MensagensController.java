@@ -1,8 +1,9 @@
-package com.jayd.java.demoapi1.control;
+package com.jayd.java.demoapi1.mensagens;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,13 +12,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.jayd.java.demoapi1.model.Mensagens;
-import com.jayd.java.demoapi1.repository.MensagensRepository;
-
 @RestController
 @RequestMapping("/mensagens")
+@CrossOrigin
 public class MensagensController {
-	
+	 
 	@Autowired
 	private MensagensRepository mensagensRepository;
 	
@@ -26,6 +25,10 @@ public class MensagensController {
 		return mensagensRepository.conversa(uId1, uId2);
 	}
 	
+	@GetMapping("/{uId1}/{uId2}")
+	public List<Mensagens> getM(@PathVariable Long uId1, @PathVariable Long uId2){
+		return mensagensRepository.mensagNLida(uId1, uId2);
+	}
 	@GetMapping(path = "/{mensId}")
 	public Mensagens getOne(@PathVariable Long id) {
 		if(mensagensRepository.existsById(id)) {
@@ -40,7 +43,7 @@ public class MensagensController {
 	}
 		
 	
-	/*@PatchMapping(path = "/{id}", produces = "application/json")
+	/*@PatchMapping(path = "/{id}", produces = "application/so")
 	public String updateViews(@PathVariable Long id) {
 		repository.updateViews(id);
 		return "{\"status\": \"success\"}";

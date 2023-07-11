@@ -1,4 +1,4 @@
-package com.jayd.java.demoapi1.model;
+package com.jayd.java.demoapi1.contatos;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -17,7 +17,7 @@ public class ContatosAdicionados {
 	@Column(length = 255)
 	private Long contUserIdPrimary;
 	
-	@Column(length = 255)
+	@Column(length = 255) 
 	private Long contUserIdContato;
 
 	public Long getContId() {

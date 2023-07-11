@@ -1,4 +1,4 @@
-package com.jayd.java.demoapi1.model;
+package com.jayd.java.demoapi1.usuario;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -18,7 +18,7 @@ public class Usuario {
 	private String userNome;
 
 	@Column(length = 255)
-	private String userEmail;
+	private String userEmail; 
 
 	@Column(length = 255)
 	private String userIdFirebase;
