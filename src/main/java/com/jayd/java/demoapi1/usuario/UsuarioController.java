@@ -24,7 +24,7 @@ public class UsuarioController {
 		return usuarioRepository.listaPAdd(uNom);
 		}
 
-	@GetMapping(path = "/{userId}")
+	@GetMapping(path = "/{userId}/one")
 	public Usuario getOne(@PathVariable Long userId) {
 			return usuarioRepository.sendUser(userId);
 	}

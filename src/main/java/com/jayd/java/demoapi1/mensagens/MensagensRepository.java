@@ -19,6 +19,9 @@ public interface MensagensRepository extends JpaRepository<Mensagens, Long> {
 	@Query(value = "SELECT * FROM MENSAGENS WHERE MENS_CONT_ID = :user1 AND MENS_USER_ID = :user2",nativeQuery = true)
 	Mensagens sendMensage(@Param ("user1") Long user1, @Param ("user2") Long user2);
 	
+	@Query(value = "SELECT * FROM MENSAGENS WHERE MENS_MENSAGEM LIKE '%:mens%'",nativeQuery = true)
+	List<Mensagens> sendPPalavra(@Param ("mens") String mens);
+	
 	@Query(value = "INSERT INTO MENSAGENS   (MENS_DATA, MENS_MENSAGEM, MENS_STATUS, MENS_USER_ID_CONTATO, MENS_USER_ID_PRIMARY) VALUES (:mData, :mMensagem, :mStatus, :mContato, :mUser)",nativeQuery = true)
 	Mensagens addMensage(@Param ("mData") String mData, @Param ("mMensagem") String mMensagem, @Param ("mStatus") String mStatus, @Param ("mContato") Long mContato, @Param ("mUser") Long mUser);
 

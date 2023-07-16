@@ -25,7 +25,12 @@ public class MensagensController {
 		return mensagensRepository.conversa(uId1, uId2);
 	}
 	
-	@GetMapping("/{uId1}/{uId2}")
+	@GetMapping("/{mens}/met/var/")
+	public List<Mensagens> getLikeMens(@PathVariable String mens){
+		return mensagensRepository.sendPPalavra(mens);
+	}
+	
+	@GetMapping("/{uId1}/{uId2}/nlidas")
 	public List<Mensagens> getM(@PathVariable Long uId1, @PathVariable Long uId2){
 		return mensagensRepository.mensagNLida(uId1, uId2);
 	}
